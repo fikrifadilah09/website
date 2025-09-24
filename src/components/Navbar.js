@@ -48,7 +48,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/news">
-                Berita
+                Artikel
               </Link>
             </li>
             {/* <li className="nav-item">
