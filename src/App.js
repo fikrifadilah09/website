@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Import Components
@@ -15,10 +15,28 @@ import News from './pages/News';
 import Contact from './pages/Contact';
 
 function App() {
+  const [navbarScrolled, setNavbarScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setNavbarScrolled(true);
+      } else {
+        setNavbarScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className="App">
-      <Navbar />
-      <div className="container mt-4">
+      <Navbar scrolled={navbarScrolled} />
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
@@ -28,7 +46,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-      </div>
+      </main>
       <Footer />
     </div>
   );

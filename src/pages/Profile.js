@@ -11,7 +11,7 @@ const Profile = () => {
             Sejarah Singkat TK Nurul Hidayah
           </h2>
           <p className="lead text-justify">
-            TK Nurul Hidayah didirikan pada tahun 1996 atas keprihatinan dan
+            TK Nurul Hidayah didirikan pada tahun 2003 atas keprihatinan dan
             inisiatif para tokoh pendidikan di lingkungan Kedaung Baru. Berawal
             dari sebuah keinginan luhur untuk menyediakan pendidikan anak usia
             dini yang berkualitas dan terjangkau dengan landasan nilai-nilai
@@ -30,9 +30,8 @@ const Profile = () => {
             <Card.Body>
               <Card.Title className="text-center text-success">Visi</Card.Title>
               <Card.Text className="text-center">
-                "Mewujudkan generasi penerus yang cerdas, kreatif, mandiri,
-                ceria, dan berakhlak mulia sesuai dengan nilai-nilai luhur
-                ajaran Islam."
+                "Mendidik anak dengan kasih sayang untuk mewujudkan pribadi yang
+                mandiri, sehat, cerdas, dan kreatif serta berakhlakul karimah"
               </Card.Text>
             </Card.Body>
           </Card>
@@ -43,20 +42,17 @@ const Profile = () => {
               <Card.Title className="text-center text-success">Misi</Card.Title>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  1. Menanamkan akidah dan nilai-nilai keislaman melalui
-                  pembiasaan dalam kegiatan sehari-hari.
+                  1. Menciptakan profil pelajar yang berakhlakul mulia.
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  2. Mengembangkan seluruh potensi kecerdasan anak (kognitif,
-                  bahasa, motorik, seni, dan sosial-emosional) secara optimal.
+                  2. Menciptakan lingkungan sekolah sebagai tempat perkembangan
+                  sosial, emosional, keterampilan dan pengembangan budaya lokal
+                  dalam kebhinekaan global.
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  3. Menciptakan lingkungan belajar yang aman, nyaman, dan
-                  menyenangkan (learning is fun).
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  4. Membangun kemitraan yang harmonis antara sekolah, orang
-                  tua, dan masyarakat.
+                  3. Membina kemandirian peserta didik melalui kegiatan
+                  pembiasaan, pengembangan diri yang terencana dan
+                  berkesinambungan.
                 </ListGroup.Item>
               </ListGroup>
             </Card.Body>
@@ -70,13 +66,7 @@ const Profile = () => {
           <h2 className="text-center mb-4 text-primary">
             Profil Guru dan Staf
           </h2>
-          <p className="text-center text-muted mb-4">
-            Untuk menampilkan foto guru, silakan letakkan file gambar (misalnya
-            .jpg, .png) di folder: <br />
-            <code>public/images/teachers/</code> <br />
-            dengan nama file yang sesuai (contoh: <code>siti-patonah.jpg</code>
-            ). Jika file tidak ditemukan, placeholder akan ditampilkan.
-          </p>
+
           <Row className="justify-content-center g-4">
             <Col xs={6} md={4} lg={2} className="text-center">
               <Card className="h-100 shadow-sm border-0">
@@ -84,7 +74,8 @@ const Profile = () => {
                 <Card.Img
                   variant="top"
                   src={
-                    process.env.PUBLIC_URL + "/images/teachers/siti-patonah.jpg"
+                    process.env.PUBLIC_URL +
+                    "/images/teachers/kepala_sekolah.png"
                   }
                   onError={(e) => {
                     e.target.onerror = null;
@@ -94,9 +85,7 @@ const Profile = () => {
                   alt="Siti Patonah"
                 />
                 <Card.Body>
-                  <Card.Title className="fs-6">
-                    Siti Patonah, S.Pd.AUD
-                  </Card.Title>
+                  <Card.Title className="fs-6">Siti Rokamah, S.pd.I</Card.Title>
                   <Card.Text className="small text-muted">
                     Kepala Sekolah
                   </Card.Text>
@@ -108,10 +97,7 @@ const Profile = () => {
                 {/* Ganti 'anisa-fitriani.jpg' dengan nama file foto Anisa Fitriani */}
                 <Card.Img
                   variant="top"
-                  src={
-                    process.env.PUBLIC_URL +
-                    "/images/teachers/anisa-fitriani.jpg"
-                  }
+                  src={process.env.PUBLIC_URL + "/images/teachers/guru_1.png"}
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src =
@@ -121,11 +107,9 @@ const Profile = () => {
                 />
                 <Card.Body>
                   <Card.Title className="fs-6">
-                    Anisa Fitriani, S.Pd.
+                    Hikmah Wulandari, S.Pd.
                   </Card.Title>
-                  <Card.Text className="small text-muted">
-                    Guru Kelas B1
-                  </Card.Text>
+                  <Card.Text className="small text-muted">Guru</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -134,9 +118,7 @@ const Profile = () => {
                 {/* Ganti 'dewi-lestari.jpg' dengan nama file foto Dewi Lestari */}
                 <Card.Img
                   variant="top"
-                  src={
-                    process.env.PUBLIC_URL + "/images/teachers/dewi-lestari.jpg"
-                  }
+                  src={process.env.PUBLIC_URL + "/images/teachers/guru_2.png"}
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src =
@@ -145,10 +127,8 @@ const Profile = () => {
                   alt="Dewi Lestari"
                 />
                 <Card.Body>
-                  <Card.Title className="fs-6">Dewi Lestari, S.Pd.</Card.Title>
-                  <Card.Text className="small text-muted">
-                    Guru Kelas B2
-                  </Card.Text>
+                  <Card.Title className="fs-6">Komariah</Card.Title>
+                  <Card.Text className="small text-muted">Guru</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -157,10 +137,7 @@ const Profile = () => {
                 {/* Ganti 'nurul-hidayati.jpg' dengan nama file foto Nurul Hidayati */}
                 <Card.Img
                   variant="top"
-                  src={
-                    process.env.PUBLIC_URL +
-                    "/images/teachers/nurul-hidayati.jpg"
-                  }
+                  src={process.env.PUBLIC_URL + "/images/teachers/guru_3.png"}
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src =
@@ -170,35 +147,9 @@ const Profile = () => {
                 />
                 <Card.Body>
                   <Card.Title className="fs-6">
-                    Nurul Hidayati, A.Ma.
+                    Yunita Anggraini, S.Pd
                   </Card.Title>
-                  <Card.Text className="small text-muted">
-                    Guru Kelas A
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col xs={6} md={4} lg={2} className="text-center">
-              <Card className="h-100 shadow-sm border-0">
-                {/* Ganti 'indah-permatasari.jpg' dengan nama file foto Indah Permatasari */}
-                <Card.Img
-                  variant="top"
-                  src={
-                    process.env.PUBLIC_URL +
-                    "/images/teachers/indah-permatasari.jpg"
-                  }
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src =
-                      "https://via.placeholder.com/150x150?text=Indah+Permatasari";
-                  }}
-                  alt="Indah Permatasari"
-                />
-                <Card.Body>
-                  <Card.Title className="fs-6">Indah Permatasari</Card.Title>
-                  <Card.Text className="small text-muted">
-                    Tenaga Administrasi
-                  </Card.Text>
+                  <Card.Text className="small text-muted">Guru</Card.Text>
                 </Card.Body>
               </Card>
             </Col>

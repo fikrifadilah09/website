@@ -1,12 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ scrolled }) => {
+  // Reverting to a light theme on scroll as requested.
+  // When scrolled, use 'navbar-light' for dark text and 'bg-light' for a light background.
+  const navClass = scrolled
+    ? "navbar navbar-expand-lg navbar-light bg-light fixed-top scrolled"
+    : "navbar navbar-expand-lg navbar-dark fixed-top";
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className={navClass}>
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          TK Nurul Hidayah
+        <Link className="navbar-brand d-flex align-items-center" to="/">
+          <img
+            src={process.env.PUBLIC_URL + '/logo192.png'}
+            alt="TK Nurul Hidayah Logo"
+            style={{ height: '40px', marginRight: '10px' }}
+            className="d-inline-block align-text-top"
+          />
+          <span className="d-none d-sm-inline-block">TK Nurul Hidayah</span>
         </Link>
         <button
           className="navbar-toggler"

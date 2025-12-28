@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+/* Navbar styles */
+/* Make the navbar transparent when it's not scrolled */
+.navbar:not(.scrolled) {
+  background-color: transparent !important;
+}
+
+/* Add a transition for the background color change */
+.navbar {
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Style the navbar when it IS scrolled */
+.navbar.scrolled {
+  /* The background-color is now handled by the .bg-light class in Navbar.js */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
