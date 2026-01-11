@@ -1,19 +1,29 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Card, ListGroup, Form, Button, Alert } from 'react-bootstrap';
+import React, { useState } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  ListGroup,
+  Form,
+  Button,
+  Alert,
+} from "react-bootstrap";
 
 const Registration = () => {
-  const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdfRJs08PvJUo_z9fNRzdNvCQHlSSnII8FCPdzgVxPori-rpw/formResponse";
+  const GOOGLE_FORM_ACTION_URL =
+    "https://docs.google.com/forms/d/e/1FAIpQLSdfRJs08PvJUo_z9fNRzdNvCQHlSSnII8FCPdzgVxPori-rpw/formResponse";
 
   // State to manage form data
   const [formData, setFormData] = useState({
-    namaAnak: '',
-    tanggalLahir: '', // YYYY-MM-DD format
-    namaAyah: '',
-    namaIbu: '',
-    emailOrtu: '',
-    nomorTelepon: '',
-    alamat: '',
-    kelompok: '',
+    namaAnak: "",
+    tanggalLahir: "", // YYYY-MM-DD format
+    namaAyah: "",
+    namaIbu: "",
+    emailOrtu: "",
+    nomorTelepon: "",
+    alamat: "",
+    kelompok: "",
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -22,21 +32,21 @@ const Registration = () => {
 
   // Google Form entry IDs
   const GOOGLE_FORM_ENTRIES = {
-    namaAnak: 'entry.688833762',
-    tanggalLahirDay: 'entry.1495689311_day',
-    tanggalLahirMonth: 'entry.1495689311_month',
-    tanggalLahirYear: 'entry.1495689311_year',
-    namaAyah: 'entry.172128471',
-    namaIbu: 'entry.23544563',
-    emailOrtu: 'entry.584026051',
-    nomorTelepon: 'entry.1126620840',
-    alamat: 'entry.1490828397',
-    kelompok: 'entry.966239896',
+    namaAnak: "entry.688833762",
+    tanggalLahirDay: "entry.1495689311_day",
+    tanggalLahirMonth: "entry.1495689311_month",
+    tanggalLahirYear: "entry.1495689311_year",
+    namaAyah: "entry.172128471",
+    namaIbu: "entry.23544563",
+    emailOrtu: "entry.584026051",
+    nomorTelepon: "entry.1126620840",
+    alamat: "entry.1490828397",
+    kelompok: "entry.966239896",
   };
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
       [id]: value,
     }));
@@ -53,7 +63,7 @@ const Registration = () => {
 
     // Handle date separately
     if (formData.tanggalLahir) {
-      const [year, month, day] = formData.tanggalLahir.split('-');
+      const [year, month, day] = formData.tanggalLahir.split("-");
       data.append(GOOGLE_FORM_ENTRIES.tanggalLahirDay, day);
       data.append(GOOGLE_FORM_ENTRIES.tanggalLahirMonth, month);
       data.append(GOOGLE_FORM_ENTRIES.tanggalLahirYear, year);
@@ -72,8 +82,8 @@ const Registration = () => {
       // This means we won't get a direct success/error response in React,
       // but the form will be submitted.
       await fetch(GOOGLE_FORM_ACTION_URL, {
-        method: 'POST',
-        mode: 'no-cors', // Important for cross-origin Google Form submission
+        method: "POST",
+        mode: "no-cors", // Important for cross-origin Google Form submission
         body: data,
       });
       setIsSubmitted(true);
@@ -94,10 +104,23 @@ const Registration = () => {
           <Card className="shadow-sm border-0">
             <Card.Body>
               <ListGroup variant="flush">
-                <ListGroup.Item><strong>1. Pengambilan Formulir:</strong> Orang tua mengambil formulir pendaftaran di sekolah atau mengunduh melalui website.</ListGroup.Item>
-                <ListGroup.Item><strong>2. Pengembalian Formulir:</strong> Mengembalikan formulir yang telah diisi lengkap beserta dokumen persyaratan.</ListGroup.Item>
-                <ListGroup.Item><strong>3. Wawancara & Observasi:</strong> Wawancara singkat dengan orang tua dan observasi kesiapan belajar anak (bukan tes calistung).</ListGroup.Item>
-                <ListGroup.Item><strong>4. Daftar Ulang:</strong> Melakukan pembayaran administrasi dan menyelesaikan proses daftar ulang.</ListGroup.Item>
+                <ListGroup.Item>
+                  <strong>1. Pengambilan Formulir:</strong> Orang tua mengambil
+                  formulir pendaftaran di sekolah atau mengisi melalui website.
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <strong>2. Pengembalian Formulir:</strong> Mengembalikan
+                  formulir yang telah diisi lengkap beserta dokumen persyaratan.
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <strong>3. Wawancara & Observasi:</strong> Wawancara singkat
+                  dengan orang tua dan observasi kesiapan belajar anak (bukan
+                  tes calistung).
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <strong>4. Daftar Ulang:</strong> Melakukan pembayaran
+                  administrasi dan menyelesaikan proses daftar ulang.
+                </ListGroup.Item>
               </ListGroup>
             </Card.Body>
           </Card>
@@ -110,12 +133,16 @@ const Registration = () => {
           <h2 className="text-center mb-4 text-primary">Syarat & Ketentuan</h2>
           <Card className="shadow-sm border-0">
             <Card.Body>
-              <Card.Title className="text-success">Usia Calon Siswa (per Juli [Tahun Ajaran]):</Card.Title>
+              <Card.Title className="text-success">
+                Usia Calon Siswa (per Juli [Tahun Ajaran]):
+              </Card.Title>
               <ul>
                 <li>Kelompok A: Minimal 4 Tahun</li>
                 <li>Kelompok B: Minimal 5 Tahun</li>
               </ul>
-              <Card.Title className="text-success">Dokumen yang Dibutuhkan:</Card.Title>
+              <Card.Title className="text-success">
+                Dokumen yang Dibutuhkan:
+              </Card.Title>
               <ul>
                 <li>Mengisi Formulir Pendaftaran</li>
                 <li>Fotokopi Akta Kelahiran (2 lembar)</li>
@@ -134,14 +161,24 @@ const Registration = () => {
           <Card className="shadow-sm border-0">
             <Card.Body>
               <Card.Text className="lead">
-                Untuk rincian biaya pendidikan Tahun Ajaran 2026/2027, silakan hubungi panitia Pendaftaran Peserta Didik Baru (PPDB) kami melalui telepon atau datang langsung ke sekolah pada jam kerja.
+                Untuk rincian biaya pendidikan Tahun Ajaran 2026/2027, silakan
+                hubungi panitia Pendaftaran Peserta Didik Baru (PPDB) kami
+                melalui telepon atau datang langsung ke sekolah pada jam kerja.
               </Card.Text>
-              <Card.Title className="text-success">Komponen biaya umumnya terdiri dari:</Card.Title>
+              <Card.Title className="text-success">
+                Komponen biaya umumnya terdiri dari:
+              </Card.Title>
               <ul>
-                <li>Uang Formulir: [Contoh: Rp 150.000]</li>
-                <li>Uang Pangkal / Pembangunan: (Dibayarkan satu kali selama menjadi siswa)</li>
+                <li>Uang Formulir: Rp 150.000</li>
+                <li>
+                  Uang Pangkal / Pembangunan: (Dibayarkan satu kali selama
+                  menjadi siswa)
+                </li>
                 <li>SPP Bulanan: (Termasuk kegiatan belajar harian)</li>
-                <li>Uang Kegiatan Tahunan: (Untuk mendukung kegiatan outing class, puncak tema, dll)</li>
+                <li>
+                  Uang Kegiatan Tahunan: (Untuk mendukung kegiatan outing class,
+                  puncak tema, dll)
+                </li>
                 <li>Biaya Seragam: (Mencakup beberapa setel seragam)</li>
               </ul>
             </Card.Body>
@@ -152,15 +189,21 @@ const Registration = () => {
       {/* Formulir Pendaftaran Online */}
       <Row>
         <Col>
-          <h2 className="text-center mb-4 text-primary">Formulir Pendaftaran Online</h2>
+          <h2 className="text-center mb-4 text-primary">
+            Formulir Pendaftaran Online
+          </h2>
           <Card className="shadow-sm border-0 p-4">
             {isSubmitted ? (
               <Alert variant="success" className="text-center">
                 <Alert.Heading>Pendaftaran Berhasil Dikirim!</Alert.Heading>
-                <p>Terima kasih telah mendaftar. Data Anda telah kami terima.</p>
+                <p>
+                  Terima kasih telah mendaftar. Data Anda telah kami terima.
+                </p>
                 <hr />
                 <p className="mb-0">
-                  **Segera hubungi admin sekolah atau datang langsung ke TK Nurul Hidayah** untuk langkah selanjutnya dalam proses pendaftaran.
+                  **Segera hubungi admin sekolah atau datang langsung ke TK
+                  Nurul Hidayah** untuk langkah selanjutnya dalam proses
+                  pendaftaran.
                 </p>
               </Alert>
             ) : (
@@ -255,13 +298,17 @@ const Registration = () => {
                     required
                   >
                     <option value="">Pilih...</option>
-                    <option value="Kelompok A">Kelompok A (Usia 4 Tahun)</option>
-                    <option value="Kelompok B">Kelompok B (Usia 5 Tahun)</option>
+                    <option value="Kelompok A">
+                      Kelompok A (Usia 4 Tahun)
+                    </option>
+                    <option value="Kelompok B">
+                      Kelompok B (Usia 5 Tahun)
+                    </option>
                   </Form.Select>
                 </Form.Group>
 
                 <Button variant="primary" type="submit" disabled={isLoading}>
-                  {isLoading ? 'Mengirim...' : 'Kirim Pendaftaran'}
+                  {isLoading ? "Mengirim..." : "Kirim Pendaftaran"}
                 </Button>
               </Form>
             )}

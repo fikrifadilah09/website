@@ -161,13 +161,7 @@ const Profile = () => {
       <Row>
         <Col>
           <h2 className="text-center mb-4 text-primary">Fasilitas Kami</h2>
-          <p className="text-center text-muted mb-4">
-            Untuk menampilkan foto fasilitas, silakan letakkan file gambar
-            (misalnya .jpg, .png) di folder: <br />
-            <code>public/images/facilities/</code> <br />
-            dengan nama file yang sesuai (contoh: <code>ruang-kelas.jpg</code>).
-            Jika file tidak ditemukan, placeholder akan ditampilkan.
-          </p>
+
           <Row className="g-4">
             <Col md={6} lg={3}>
               <Card className="h-100 shadow-sm border-0">
@@ -176,7 +170,7 @@ const Profile = () => {
                   variant="top"
                   src={
                     process.env.PUBLIC_URL +
-                    "/images/facilities/ruang-kelas.jpg"
+                    "/images/facilities/belajar_dikelas.jpeg"
                   }
                   onError={(e) => {
                     e.target.onerror = null;
@@ -203,8 +197,7 @@ const Profile = () => {
                 <Card.Img
                   variant="top"
                   src={
-                    process.env.PUBLIC_URL +
-                    "/images/facilities/area-bermain-outdoor.jpg"
+                    process.env.PUBLIC_URL + "/images/facilities/bermain.jpeg"
                   }
                   onError={(e) => {
                     e.target.onerror = null;
@@ -259,8 +252,7 @@ const Profile = () => {
                 <Card.Img
                   variant="top"
                   src={
-                    process.env.PUBLIC_URL +
-                    "/images/facilities/toilet-ramah-anak.jpg"
+                    process.env.PUBLIC_URL + "/images/facilities/toilet.jpeg"
                   }
                   onError={(e) => {
                     e.target.onerror = null;
